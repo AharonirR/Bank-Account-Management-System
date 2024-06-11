@@ -64,4 +64,23 @@ void withdraw_money(Bank *bank) {
         }
     }
 
-    printf("Account not found.\n
+    printf("Account not found.\n");
+}
+
+void check_balance(Bank *bank) {
+    int account_number;
+
+    printf("Enter account number: ");
+    scanf("%d", &account_number);
+
+    for (int i = 0; i < bank->num_accounts; i++) {
+        if (bank->accounts[i].account_number == account_number) {
+            printf("Account Number: %d\n", bank->accounts[i].account_number);
+            printf("Name: %s\n", bank->accounts[i].name);
+            printf("Balance: %.2f\n", bank->accounts[i].balance);
+            return;
+        }
+    }
+
+    printf("Account not found.\n");
+}
